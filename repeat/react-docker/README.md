@@ -98,11 +98,11 @@ npm run build
     docker login
     ```
 
-        ```bash
+     ```bash
      docker tag my-react-app annurdev/my-react-app
     ```
 
-         ```bash
+    ```bash
      docker push my-react-app annurdev/my-react-app
     ```
 
