@@ -92,6 +92,21 @@ npm run build
     ```
 
 
+4. **Publish your app in dockerHub**
+
+    ```bash
+    docker login
+    ```
+
+        ```bash
+     docker tag my-react-app annurdev/my-react-app
+    ```
+
+         ```bash
+     docker push my-react-app annurdev/my-react-app
+    ```
+
+
 
 
     This maps port `5173` in the container to port `5173` on your host machine. You should be able to view the application at [http://localhost:5173](http://localhost:5173).
