@@ -1,22 +1,36 @@
-### Building and running your application
 
-When you're ready, start your application by running:
-`docker compose up --build`.
 
-Your application will be available at http://localhost:5173.
+# Using Docker Container
 
-### Deploying your application to the cloud
+1. **Initialize docker to react app**
 
-First, build your image, e.g.: `docker build -t myapp .`.
-If your cloud uses a different CPU architecture than your development
-machine (e.g., you are on a Mac M1 and your cloud provider is amd64),
-you'll want to build the image for that platform, e.g.:
-`docker build --platform=linux/amd64 -t myapp .`.
+    Open your terminal and run:
 
-Then, push it to your registry, e.g. `docker push myregistry.com/myapp`.
+    ```bash
+    docker init
+    ```
 
-Consult Docker's [getting started](https://docs.docker.com/go/get-started-sharing/)
-docs for more detail on building and pushing.
+2. **Modify package.json file add (--host) in script**
 
-### References
-* [Docker's Node.js guide](https://docs.docker.com/language/nodejs/)
+    ```bash
+    "dev": "vite --host",
+    ```
+
+3. **Modify vite.config.ts file for real time sync client and docker container**
+
+    ```bash
+   server: {
+    watch: {
+      usePolling: true,
+    },
+  },
+    ```
+
+1. **Open terminal and run this command for running react app**
+
+    ```bash
+    docker compose up
+        ```
+
+    This maps port `5173` in the container to port `5173` on your host machine. You should be able to view the application at [http://localhost:5173](http://localhost:5173).
+
