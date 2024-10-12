@@ -82,7 +82,7 @@ npm run build
 3. **Run the Docker container:**
 
     ```bash
-docker run 5173:5173 my-react-app
+    docker run -p 5173:5173 my-react-app
     ```
 
     This maps port `5173` in the container to port `5173` on your host machine. You should be able to view the application at [http://localhost:5173](http://localhost:5173).
