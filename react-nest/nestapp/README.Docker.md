@@ -17,3 +17,9 @@
     ```
 
 
+
+# Real time run docker container for development
+   
+    ```bash
+        docker run -p 5000:5000 nestjs-app
+        ```
