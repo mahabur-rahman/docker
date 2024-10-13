@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Schema, Document } from 'mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { UserModule } from './user/user.module';
 
 // Define the schema directly
 export type NameDocument = Name & Document;
@@ -25,6 +26,7 @@ const NameSchema = new Schema({
     MongooseModule.forRoot(process.env.MONGO_URI),
     // Register the Name model
     MongooseModule.forFeature([{ name: 'Name', schema: NameSchema }]),
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],

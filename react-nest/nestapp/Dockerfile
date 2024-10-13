@@ -1,5 +1,5 @@
 # Step 1: Use an official Node.js runtime as a parent image
-FROM node:18-alpine
+FROM node:20-alpine
 
 # Step 2: Set the working directory in the container
 WORKDIR /app
@@ -13,11 +13,8 @@ RUN npm install
 # Step 5: Copy the rest of the application code to the container
 COPY . .
 
-# Step 6: Build the app
-RUN npm run build
-
-# Step 7: Expose the port that the app runs on
+# Step 6: Expose the port that the app runs on
 EXPOSE 5000
 
-# Step 8: Start the application
+# Step 7: Start the application in development mode
 CMD ["npm", "run", "start:dev"]
