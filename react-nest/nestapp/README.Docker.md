@@ -18,13 +18,28 @@
 
 
 
-# Using docker compose file
+# Using docker compose file for real time changes
+
+1. **Modify tsconfig.json file for windows machine real time changes for development**
+
+     ```bash
+         "watchOptions": {
+            "watchFile": "dynamicPriorityPolling",
+            "watchDirectory": "dynamicPriorityPolling",
+            "excludeDirectories": ["**/node_modules", "dist"],
+        }
+        ```
+
    
     ```bash
         docker-compose up --build
         ```
 
 
+# docker container run all time in the background in detached mode
 
+  ```bash
+         docker-compose -f docker-compose.yml up --build -d
+        ```
 
 
