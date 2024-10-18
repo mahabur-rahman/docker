@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import 'colors'; // Enable the colors prototype extension
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -18,8 +19,9 @@ async function bootstrap() {
   const PORT = process.env.PORT || 2000;
   await app.listen(PORT, () => {
     console.log(
-      `Server is running at ${process.env.NODE_ENV} on port: ${PORT}`,
-    );
+      `Server is running at ${process.env.NODE_ENV} on port: ${PORT}`.rainbow,
+    ); // Use colors
   });
 }
+
 bootstrap();

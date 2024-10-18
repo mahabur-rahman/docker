@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const App = () => {
   const [names, setNames] = useState([]);
-  const [newName, setNewName] = useState(''); // State to store the input field value
+  const [newName, setNewName] = useState(''); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -10,7 +10,7 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/name');
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/name`);
         if (!response.ok) {
           throw new Error('Failed to fetch');
         }
@@ -36,7 +36,7 @@ const App = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/name', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/name`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>hello docker updated!</h1>
+      <h1>Updated docker again :_________________</h1>
 
       {/* Input form */}
       <form onSubmit={handleSubmit}>
